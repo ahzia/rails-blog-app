@@ -1,4 +1,4 @@
-# school-library
+# Rails Blog App
 
 Imagine that you are the librarian of OOP University, and you need a tool to record what books are in the library and who borrows them. The app that I created will allow you to:
 
