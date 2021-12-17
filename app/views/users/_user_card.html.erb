@@ -1,0 +1,5 @@
+<% if user.photo %>
+<img src= <%= user.photo %>  alt= "<%= user.name %> photo" />
+<% end %>
+<p><%= user.name %><p>
+<p>Number of posts: <%= user.post_counter %> </p>
