@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  skip_before_action :verify_authenticity_token
   def index
     @user = User.find(params[:user_id])
     @posts = @user.posts
@@ -6,5 +7,21 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+  end
+
+  def new
+    @post = Post.new
+  end
+
+  def create
+    @post = current_user.posts.new(params[:id])
+    @post.title = params[:title]
+    @post.text = params[:text]
+    if @post.save
+      flash[:notice] = 'Post successfully added!'
+      redirect_to user_posts_path
+    else
+      render 'new'
+    end
   end
 end

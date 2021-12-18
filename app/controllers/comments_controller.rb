@@ -1,0 +1,23 @@
+class CommentsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+  def new
+    @comment = Comment.new
+  end
+
+  def create
+    @comment = current_user.comments.new(comment_params)
+    @comment.post_id = params[:post_id]
+    if @comment.save
+      flash[:notice] = 'Comment successfully added!'
+      redirect_to user_posts_path(current_user)
+    else
+      render :new
+    end
+  end
+
+  private
+
+  def comment_params
+    params.permit(:text)
+  end
+end
