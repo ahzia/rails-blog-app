@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-1"> 
+    <% if user.photo %>  
+      <img  class="img-fluid user-img" src= <%= user.photo %>  alt= "<%= user.name %> photo" />
+    <% end %>
+  </div>
+  <div class="col-8">
+    <div class="card h-100">
+      <div class="card-body user-body">
+        <a href="/users/<%= user.id %>" class="link">
+          <p class="card-title user-title"><%= user.name %><p>
+        </a>
+        <p class="card-text user-text">Number of posts: <%= user.post_counter %> </p>
+      </div>
+    </div>
+  </div>
+</div>

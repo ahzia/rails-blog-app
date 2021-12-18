@@ -1,2 +1,18 @@
-<h1>Users ID <%= params[:id] %><h1>
-<p>Details of the user</p>
+<div class="container">
+<div class="row m-4">
+<%= render partial: "user_card", object: @user , as: "user" %>
+<div class="card bio">
+<div class="card-body">
+<p class="card-text">Bio: <%= @user.bio %></p>
+</div>
+</div>
+</div>
+<% @user.recent_posts.each do |post| %>
+    <%= render partial: "posts/post_card", object: post, as: "post" %>
+<% end %>
+<div class="row">
+<div class="col text-center">
+<a href="/users/<%= @user.id %>/posts" class="btn btn-primary my-2">Show all</a>
+</div>
+</div>
+</div>
