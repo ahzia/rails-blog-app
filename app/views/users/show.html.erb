@@ -4,4 +4,4 @@
 <% @user.recent_posts.each do |post| %>
     <%= render partial: "posts/post_card", object: post, as: "post" %>
 <% end %>
-<a href="/users<%= user.id %>/posts"></a>
+<a href="/users/<%= @user.id %>/posts">Show all</a>

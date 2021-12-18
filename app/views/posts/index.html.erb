@@ -2,6 +2,6 @@
 <% @posts.each do |post| %>
 <%= render partial: 'post_card', object: post, as: 'post' %>
 <% post.recent_comments.each do |comment| %>
-<%render partial: 'comment_card', object: comment, as: 'comment' %>
+<%= render partial: 'comment_card', object: comment, as: 'comment' %>
 <% end %> 
 <% end %>
