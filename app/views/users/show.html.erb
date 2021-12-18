@@ -1,7 +1,18 @@
+<div class="container">
+<div class="row m-4">
 <%= render partial: "user_card", object: @user , as: "user" %>
-<h3>Bio:</h3>
-<p><%= @user.bio %></p>
+<div class="card bio">
+<div class="card-body">
+<p class="card-text">Bio: <%= @user.bio %></p>
+</div>
+</div>
+</div>
 <% @user.recent_posts.each do |post| %>
     <%= render partial: "posts/post_card", object: post, as: "post" %>
 <% end %>
-<a href="/users/<%= @user.id %>/posts">Show all</a>
+<div class="row">
+<div class="col text-center">
+<a href="/users/<%= @user.id %>/posts" class="btn btn-primary my-2">Show all</a>
+</div>
+</div>
+</div>

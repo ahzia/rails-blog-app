@@ -1,5 +1,9 @@
-<% @users.each do |user| %>
-<a href="/users/<%= user.id %>">
-    <%= render partial: "user_card", object: user , as: "user" %>
-</a>
-<% end %>
+<main class="container justify-content-start">
+  <% @users.each do |user| %>
+    <div class="row" >
+      <%= render partial: "user_card", object: user , as: "user" %>
+    </div>
+  <% end %>
+</main>
+
+
