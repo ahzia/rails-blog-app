@@ -17,12 +17,12 @@ RSpec.describe Post, type: :model do
   end
 
   it 'validates the presence of the comments_counter' do
-    post.comments_counter = nil
+    post.comment_counter = nil
     expect(post).to_not be_valid
   end
 
   it 'validates the numericality of the comments_counter' do
-    post.comments_counter = 'This is really good post!'
+    post.comment_counter = 'This is really good post!'
     expect(post).to_not be_valid
   end
 

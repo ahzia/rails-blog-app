@@ -11,12 +11,12 @@ RSpec.describe User, type: :model do
   end
 
   it 'validates the presence of the posts_counter' do
-    user.posts_counter = nil
+    user.post_counter = nil
     expect(user).to_not be_valid
   end
 
   it 'validates the numericality of the posts_counter' do
-    user.posts_counter = 'a'
+    user.post_counter = 'a'
     expect(user).to_not be_valid
   end
 

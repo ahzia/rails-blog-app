@@ -17,7 +17,7 @@ RSpec.describe 'Users', type: :request do
   end
 
   describe 'GET /show' do
-    before(:example) { get('/users/365') }
+    before(:example) { get('/users/2') }
 
     it 'renders correct template' do
       expect(response).to_not render_template('index')
