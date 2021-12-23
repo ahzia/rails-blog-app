@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  user = User.new(name: 'Donard', bio: 'I am a Full-stack developer', posts_counter: 0, photo: 'https://avatars.githubusercontent.com/u/74506933?v=4')
+  user = User.new(name: 'Donard', bio: 'I am a Full-stack developer', post_counter: 0, photo: 'https://avatars.githubusercontent.com/u/74506933?v=4')
 
   before(:each) { user.save }
 
@@ -33,7 +33,7 @@ RSpec.describe User, type: :model do
   describe '#recent_posts' do
     before(:each) do
       5.times do |i|
-        Post.new(title: "Post #{i}", text: "text#{i}", comments_counter: 0, likes_counter: 0, author_id: user.id)
+        Post.new(title: "Post #{i}", text: "text#{i}", comment_counter: 0, likes_counter: 0, author_id: user.id)
       end
     end
 
