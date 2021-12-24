@@ -11,6 +11,7 @@ class Ability
         can :manage, :all
       else
         can :manage, Post, author: user
+        can :manage, Comment, author: user
         can :read, :all
       end
     #
