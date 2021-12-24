@@ -27,6 +27,13 @@ class PostsController < ApplicationController
     else
       redirect_to new_user_session_path, notice: 'You are not logged in.'
     end
-   
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    authorize! :destroy, @post
+    @post.destroy
+    flash[:notice] = "Post Deleted Succefully"
+    redirect_back fallback_location:root_path
   end
 end
