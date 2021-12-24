@@ -33,7 +33,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     authorize! :destroy, @post
     @post.destroy
-    flash[:notice] = "Post Deleted Succefully"
-    redirect_back fallback_location:root_path
+    flash[:notice] = 'Post Deleted Succefully'
+    redirect_back fallback_location: root_path
   end
 end

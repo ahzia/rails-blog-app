@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     authorize! :destroy, @comment
     @comment.destroy
-    flash[:notice] = "Comment Deleted Succefully"
+    flash[:notice] = 'Comment Deleted Succefully'
     redirect_back fallback_location: root_path
   end
 
