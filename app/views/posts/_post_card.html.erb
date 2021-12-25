@@ -6,9 +6,16 @@
         <p class="card-title post-title"><%= post.title %></p>
         </a>
         <p class="card-text post-text"><%= post.text %><p>
-          <div class="post-info d-flex justify-content-end">    
-            <p class="m-2"> Comment:<%= post.likes_counter %></p>
-            <p class="m-2"> Likes:<%= post.comment_counter %></p>
+          <div class="post-info d-flex justify-content-start align-items-center">    
+            <%= fa_icon "thumbs-up", text: post.likes_counter %>
+            <%= fa_icon "comment", text: post.comment_counter %>
+            <%= link_to user_post_path(post.author_id, post.id), method: :delete do %>
+            <% if can? :destroy, post%>
+            <div class="text-danger" role='button'>
+              <%= fa_icon "trash"%>
+            </div>
+            <% end %>
+            <% end %>
           </div>
       </div>
     </div>

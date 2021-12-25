@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   skip_before_action :verify_authenticity_token
+  load_and_authorize_resource
   def new
     @comment = Comment.new
   end
@@ -13,6 +14,14 @@ class CommentsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    authorize! :destroy, @comment
+    @comment.destroy
+    flash[:notice] = 'Comment Deleted Succefully'
+    redirect_back fallback_location: root_path
   end
 
   private

@@ -27,7 +27,10 @@ gem 'jbuilder', '~> 2.7'
 
 # for authintication
 gem 'devise'
-
+# for authorization
+gem 'cancancan'
+# for icons
+gem 'font-awesome-rails'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'rails-controller-testing'
